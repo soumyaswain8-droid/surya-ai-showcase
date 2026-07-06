@@ -189,9 +189,15 @@
 
   /* ===== CLOSE ===== */
   .close{ align-items:center; text-align:center; }
-  .close .sun-wrap{ display:grid; place-items:center; width:calc(var(--u)*30); height:calc(var(--u)*30); margin-bottom:calc(var(--u)*1); background:radial-gradient(circle, rgba(255,180,74,.4), rgba(255,106,87,.14) 40%, transparent 66%); }
-  .close .sun-rise{ width:calc(var(--u)*11); height:calc(var(--u)*11); border-radius:50%; background:radial-gradient(circle at 45% 40%, #FFE08A, #FFB84A 55%, #FF6A57); }
-  .close .big-rise{ font-family:var(--serif); font-style:italic; font-weight:400; font-size:calc(var(--u)*5); line-height:1.12; text-wrap:balance; max-width:24ch; }
+  .close .sun-wrap{ display:grid; place-items:center; width:calc(var(--u)*18); height:calc(var(--u)*18); margin-bottom:calc(var(--u)*.2); background:radial-gradient(circle, rgba(255,180,74,.4), rgba(255,106,87,.14) 42%, transparent 66%); }
+  .close .sun-rise{ width:calc(var(--u)*7.5); height:calc(var(--u)*7.5); border-radius:50%; background:radial-gradient(circle at 45% 40%, #FFE08A, #FFB84A 55%, #FF6A57); }
+  .close .big-rise{ font-family:var(--serif); font-style:italic; font-weight:400; font-size:calc(var(--u)*4.1); line-height:1.12; text-wrap:balance; max-width:24ch; }
+  .qr-card{ display:flex; align-items:center; gap:calc(var(--u)*2.2); background:#F7F5EF; border-radius:calc(var(--u)*1.6); padding:calc(var(--u)*1.6) calc(var(--u)*2.2); margin-top:calc(var(--u)*2.2); text-align:left; box-shadow:0 calc(var(--u)*.6) calc(var(--u)*1.8) rgba(0,0,0,.35); }
+  .qr-card .qr{ width:calc(var(--u)*10); height:calc(var(--u)*10); display:block; border-radius:calc(var(--u)*.5); flex:none; }
+  .qr-lead{ font-size:calc(var(--u)*1.85); font-weight:800; color:#0A0E24; }
+  .qr-url{ font-size:calc(var(--u)*1.28); color:#B45309; font-family:var(--mono); margin-top:calc(var(--u)*.4); }
+  .qr-brand{ font-size:calc(var(--u)*1.22); color:#4b5169; margin-top:calc(var(--u)*.9); display:flex; align-items:center; gap:.5em; }
+  .qr-brand .dot{ width:.8em; height:.8em; border-radius:50%; background:radial-gradient(circle at 40% 35%, #FFB84A, #FF6A57); flex:none; }
 
   /* ===== nav chrome ===== */
   .progress{ position:fixed; top:0; left:0; height:calc(var(--u)*.5); background:linear-gradient(90deg,#FFB84A,#FF6A57); width:0; z-index:50; transition:width .35s ease; box-shadow:0 0 12px rgba(255,154,60,.6); }
@@ -213,7 +219,8 @@
     .slide .statline,
     .slide .contact,
     .slide .sun-wrap,
-    .slide .big-rise{
+    .slide .big-rise,
+    .slide .qr-card{
       opacity:0; transform:translateY(24px);
       transition:opacity .5s ease, transform .62s cubic-bezier(.2,.7,.25,1);
       will-change:opacity, transform;
@@ -228,7 +235,8 @@
     .slide.is-active .statline,
     .slide.is-active .contact,
     .slide.is-active .sun-wrap,
-    .slide.is-active .big-rise{ opacity:1; transform:none; }
+    .slide.is-active .big-rise,
+    .slide.is-active .qr-card{ opacity:1; transform:none; }
     .slide .pcard, .slide .whatlist .it, .slide .asks .ask{
       opacity:0; transform:translateY(18px);
       transition:opacity .45s ease, transform .52s cubic-bezier(.2,.7,.25,1);
@@ -250,6 +258,7 @@
     .slide.is-active .statline{ transition-delay:.55s }
     .slide.is-active .contact{ transition-delay:.5s }
     .slide.is-active .big-rise{ transition-delay:.28s }
+    .slide.is-active .qr-card{ transition-delay:.5s }
     .slide.is-active .pcard:nth-child(1){ transition-delay:.14s }
     .slide.is-active .pcard:nth-child(2){ transition-delay:.20s }
     .slide.is-active .pcard:nth-child(3){ transition-delay:.26s }
@@ -635,7 +644,14 @@
   <section class="slide starfield close">
     <div class="sun-wrap"><div class="sun-rise"></div></div>
     <p class="big-rise">“We don't wait for the future. <span class="grad-word">We ship it.</span>”</p>
-    <div class="brandline" style="justify-content:center; margin-top:calc(var(--u)*3); margin-bottom:0"><div class="sun-mark" style="width:calc(var(--u)*2.4);height:calc(var(--u)*2.4)"></div><b style="font-size:calc(var(--u)*2)">SURYA&nbsp;AI</b></div>
+    <div class="qr-card">
+      <img class="qr" src="data:image/png;base64,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" alt="QR code — scan to open the live Surya AI showcase">
+      <div>
+        <div class="qr-lead">Scan to explore all 8 products →</div>
+        <div class="qr-url">soumyaswain8-droid.github.io/surya-ai-showcase</div>
+        <div class="qr-brand"><span class="dot"></span> SURYA&nbsp;AI · soumya@suryaai.co.in</div>
+      </div>
+    </div>
   </section>
 
 </div>
